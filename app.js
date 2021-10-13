@@ -3,10 +3,18 @@ window.onload = function () {
   let inputPaper = document.querySelector('#paper')
   let inputScissor = document.querySelector('#scissor')
   let computerChoice = document.querySelector('#computerchoice')
+  let finalResult = document.querySelector('#result')
 
-  computerChoice.innerText = 'Computer choice: ' + getComputerChoice()
+  function playGame() {
+    document.querySelector('#resultButton').onclick = () => {
+      console.log(result(getUserChoice(), getComputerChoice()))
 
-  console.log(result(getUserChoice(), getComputerChoice()))
+      computerChoice.innerText = 'Computer choice: ' + getComputerChoice() + ' - User choice: ' + getUserChoice()
+      finalResult.innerText = 'The result is: ' + result()
+    }
+  }
+
+  playGame()
 }
 
 function getUserChoice(userChoice) {
@@ -25,13 +33,13 @@ function getUserChoice(userChoice) {
     return userChoice
   }
 
-  document.querySelector('#result').onclick = () => {
+  document.querySelector('#pickButton').onclick = () => {
     console.log(userChoice)
-
-    result()
+    return userChoice
   }
 }
 
+//Explain how Math.floor & Math.random works
 function getComputerChoice(computerChoice) {
   let computerChoiceRandom = Math.floor(Math.random() * 3)
   if (computerChoiceRandom === 0) {
@@ -46,41 +54,43 @@ function getComputerChoice(computerChoice) {
   }
 }
 
+//Somehow it never goes into the if statements, goes directly to the else, figure out why.
+//userChoice always seems to be 'undefined'?
 function result(userChoice, computerChoice) {
   //ROCK
-  if (userChoice == 'ROCK' && computerChoice == 'SCISSOR') {
+  if (userChoice === 'ROCK' && computerChoice === 'SCISSOR') {
     console.log('You win. Rock beats scissor')
     return 'You win. Rock beats scissor'
-  } else if (userChoice == 'ROCK' && computerChoice == 'PAPER') {
+  } else if (userChoice === 'ROCK' && computerChoice === 'PAPER') {
     console.log('You loose. Paper beats rock')
     return 'You loose. Paper beats rock'
-  } else if (userChoice == 'ROCK' && computerChoice == 'ROCK') {
+  } else if (userChoice === 'ROCK' && computerChoice === 'ROCK') {
     console.log('Draw. You both choose rock')
     return 'Draw. You both choose rock'
   }
   //SCISSOR
-  else if (userChoice == 'SCISSOR' && computerChoice == 'PAPAER') {
+  else if (userChoice === 'SCISSOR' && computerChoice === 'PAPAER') {
     console.log('You win. Scissor beats paper')
     return 'You win. Scissor beats paper'
-  } else if (userChoice == 'SCISSOR' && computerChoice == 'ROCK') {
+  } else if (userChoice === 'SCISSOR' && computerChoice === 'ROCK') {
     console.log('You loose. Rock beats scissor')
     return 'You loose. Rock beats scissor'
-  } else if (userChoice == 'SCISSOR' && computerChoice == 'SCISSOR') {
+  } else if (userChoice === 'SCISSOR' && computerChoice === 'SCISSOR') {
     console.log('Draw. You both choose scissor')
     return 'Draw. You both choose scissor'
   }
   //PAPER
-  else if (userChoice == 'PAPER' && computerChoice == 'ROCK') {
+  else if (userChoice === 'PAPER' && computerChoice === 'ROCK') {
     console.log('You win. Paper beats rock')
     return 'You win. Paper beats rock'
-  } else if (userChoice == 'PAPER' && computerChoice == 'SCISSOR') {
+  } else if (userChoice === 'PAPER' && computerChoice === 'SCISSOR') {
     console.log('You loose. Scissor beats paper')
     return 'You loose. Scissor beats paper'
-  } else if (userChoice == 'PAPER' && computerChoice == 'PAPER') {
+  } else if (userChoice === 'PAPER' && computerChoice === 'PAPER') {
     console.log('Draw. You both choose paper')
     return 'Draw. You both choose paper'
   } else {
-    console.log('ERROR')
-    return 'ERROR'
+    console.log('ERROR! You didnt pick anything')
+    return 'ERROR! You didnt pick anything'
   }
 }
