@@ -1,16 +1,12 @@
 window.onload = function () {
-  let inputRock = document.querySelector('#rock')
-  let inputPaper = document.querySelector('#paper')
-  let inputScissor = document.querySelector('#scissor')
   let computerChoice = document.querySelector('#computerchoice')
   let finalResult = document.querySelector('#result')
 
   function playGame() {
     document.querySelector('#resultButton').onclick = () => {
-      console.log(result(getUserChoice(), getComputerChoice()))
-
       computerChoice.innerText = 'Computer choice: ' + getComputerChoice() + ' - User choice: ' + getUserChoice()
       finalResult.innerText = 'The result is: ' + result()
+      console.log(result(getUserChoice(), getComputerChoice()))
     }
   }
 
@@ -40,6 +36,8 @@ function getUserChoice(userChoice) {
 }
 
 //Explain how Math.floor & Math.random works
+//Math.floor: This function returns the largest int to a given number, thus rounding down that said int. We do this because we are going to compare to non decimal numbers.
+//Math.random: This function is to generate a pseudo random number between 0 and <1. We multiply it by 3 to give us a range of numbers between 0, 1 and 2.
 function getComputerChoice(computerChoice) {
   let computerChoiceRandom = Math.floor(Math.random() * 3)
   if (computerChoiceRandom === 0) {
