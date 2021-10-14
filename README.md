@@ -1,4 +1,4 @@
-## Rock Paper Scissor
+## Rock Paper Scissors
 
 - You press a button to select your move
 - The computer picks a random move

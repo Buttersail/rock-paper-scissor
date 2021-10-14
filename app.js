@@ -24,8 +24,8 @@ function getUserChoice(userChoice) {
     return userChoice
   }
 
-  document.querySelector('#scissor').onclick = () => {
-    userChoice = 'SCISSOR'
+  document.querySelector('#scissors').onclick = () => {
+    userChoice = 'SCISSORS'
     return userChoice
   }
 
@@ -37,7 +37,7 @@ function getUserChoice(userChoice) {
 
 //Explain how Math.floor & Math.random works
 //Math.floor: This function returns the largest int to a given number, thus rounding down that said int. We do this because we are going to compare to non decimal numbers.
-//Math.random: This function is to generate a pseudo random number between 0 and <1. We multiply it by 3 to give us a range of numbers between 0, 1 and 2.
+//Math.random: This function is to generate a pseudo random number between 0 and <1. We multiply it by 3 to give us a range of numbers between 0 and 3.
 function getComputerChoice(computerChoice) {
   let computerChoiceRandom = Math.floor(Math.random() * 3)
   if (computerChoiceRandom === 0) {
@@ -47,7 +47,7 @@ function getComputerChoice(computerChoice) {
     computerChoice = 'PAPER'
     return computerChoice
   } else {
-    computerChoice = 'SCISSOR'
+    computerChoice = 'SCISSORS'
     return computerChoice
   }
 }
@@ -56,9 +56,9 @@ function getComputerChoice(computerChoice) {
 //userChoice always seems to be 'undefined'?
 function result(userChoice, computerChoice) {
   //ROCK
-  if (userChoice === 'ROCK' && computerChoice === 'SCISSOR') {
-    console.log('You win. Rock beats scissor')
-    return 'You win. Rock beats scissor'
+  if (userChoice === 'ROCK' && computerChoice === 'SCISSORS') {
+    console.log('You win. Rock beats scissors')
+    return 'You win. Rock beats scissors'
   } else if (userChoice === 'ROCK' && computerChoice === 'PAPER') {
     console.log('You loose. Paper beats rock')
     return 'You loose. Paper beats rock'
@@ -66,29 +66,35 @@ function result(userChoice, computerChoice) {
     console.log('Draw. You both choose rock')
     return 'Draw. You both choose rock'
   }
-  //SCISSOR
-  else if (userChoice === 'SCISSOR' && computerChoice === 'PAPAER') {
-    console.log('You win. Scissor beats paper')
-    return 'You win. Scissor beats paper'
-  } else if (userChoice === 'SCISSOR' && computerChoice === 'ROCK') {
-    console.log('You loose. Rock beats scissor')
-    return 'You loose. Rock beats scissor'
-  } else if (userChoice === 'SCISSOR' && computerChoice === 'SCISSOR') {
-    console.log('Draw. You both choose scissor')
-    return 'Draw. You both choose scissor'
+  //SCISSORS
+  else if (userChoice === 'SCISSORS' && computerChoice === 'PAPAER') {
+    console.log('You win. Scissors beats paper')
+    return 'You win. Scissors beats paper'
+  } else if (userChoice === 'SCISSORS' && computerChoice === 'ROCK') {
+    console.log('You loose. Rock beats scissors')
+    return 'You loose. Rock beats scissors'
+  } else if (userChoice === 'SCISSORS' && computerChoice === 'SCISSORS') {
+    console.log('Draw. You both choose scissors')
+    return 'Draw. You both choose scissors'
   }
   //PAPER
   else if (userChoice === 'PAPER' && computerChoice === 'ROCK') {
     console.log('You win. Paper beats rock')
     return 'You win. Paper beats rock'
-  } else if (userChoice === 'PAPER' && computerChoice === 'SCISSOR') {
-    console.log('You loose. Scissor beats paper')
-    return 'You loose. Scissor beats paper'
+  } else if (userChoice === 'PAPER' && computerChoice === 'SCISSORS') {
+    console.log('You loose. Scissors beats paper')
+    return 'You loose. Scissors beats paper'
   } else if (userChoice === 'PAPER' && computerChoice === 'PAPER') {
     console.log('Draw. You both choose paper')
     return 'Draw. You both choose paper'
   } else {
     console.log('ERROR! You didnt pick anything')
     return 'ERROR! You didnt pick anything'
+  }
+}
+
+const meh = () => {
+  const mehmeh = () => {
+    return '5'
   }
 }
