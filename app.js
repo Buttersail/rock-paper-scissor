@@ -92,9 +92,3 @@ function result(userChoice, computerChoice) {
     return 'ERROR! You didnt pick anything'
   }
 }
-
-const meh = () => {
-  const mehmeh = () => {
-    return '5'
-  }
-}
