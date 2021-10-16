@@ -1,16 +1,19 @@
-window.onload = function () {
-  let computerChoice = document.querySelector('#computerchoice')
-  let finalResult = document.querySelector('#result')
-
-  function playGame() {
-    document.querySelector('#resultButton').onclick = () => {
-      computerChoice.innerText = 'Computer choice: ' + getComputerChoice() + ' - User choice: ' + getUserChoice()
-      finalResult.innerText = 'The result is: ' + result()
-      console.log(result(getUserChoice(), getComputerChoice()))
-    }
-  }
-
+// document.addEventListener('DOMContentLoaded', function (event) {})
+document.querySelector('#start').onclick = () => {
+  console.log('Start Test')
   playGame()
+}
+
+function playGame() {
+  let arrButtons = Array.from(document.querySelectorAll('.selection-buttons'))
+  for (let i = 0; i < arrButtons.length; i++) {
+    arrButtons[i].style.display = 'block'
+  }
+  document.querySelector('#resultButton').onclick = () => {
+    document.querySelector('#computerchoice').innerText = 'Computer choice: ' + getComputerChoice() + ' - User choice: ' + getUserChoice()
+    document.querySelector('#result').innerText = 'The result is: ' + result()
+    console.log(result(getUserChoice(), getComputerChoice()))
+  }
 }
 
 function getUserChoice(userChoice) {
